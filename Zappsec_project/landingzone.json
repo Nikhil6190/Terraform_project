@@ -1,0 +1,64 @@
+{
+  "version": "4.0",
+  "homeRegion": "ap-south-1",
+  "accountFactories": {
+    "directory": {
+      "type": "AWS SSO"
+    }
+  },
+  "coreAccounts": {
+    "management": {
+      "email": "nikhil.chaudharidevops@gmail.com",
+      "centralizedLogging": {
+        "enableCloudTrail": true,
+        "enableConfig": true,
+        "enableS3AccessLogs": true,
+        "retentionDays": 30
+      }
+    }
+    
+  },
+  "organizationalUnits": [
+    {
+      "name": "Network",
+      "account": {
+        "email": "nikhil.chaudharidevops+network@gmail.com"
+      }
+    },
+    {
+      "name": "SharedServices",
+      "account": {
+        "email": "nikhil.chaudharidevops+sharedservice@gmail.com"
+      }
+    },
+    {
+      "name": "Prod",
+      "account": {
+        "email": "nikhil.chaudharidevops+prod@gmail.com"
+      }
+    },
+    {
+      "name": "NonProd",
+      "account": {
+        "email": "nikhil.chaudharidevops+nonprod@gmail.com"
+      }
+    }
+  ],
+  "controls": {
+    "enableMandatory": true,
+    "enabledControls": [
+      {
+        "name": "CT.S3.PR.1",
+        "description": "Prevent public access to S3 buckets"
+      },
+      {
+        "name": "CT.CLOUDTRAIL.PR.1",
+        "description": "Ensure CloudTrail is enabled in all accounts"
+      },
+      {
+        "name": "CT.IAM.PR.1",
+        "description": "Disallow root user access keys"
+      }
+    ]
+  }
+}
