@@ -1,64 +1,38 @@
+
 {
-  "version": "4.0",
-  "homeRegion": "ap-south-1",
-  "accountFactories": {
-    "directory": {
-      "type": "AWS SSO"
-    }
-  },
-  "coreAccounts": {
-    "management": {
-      "email": "nikhil.chaudharidevops@gmail.com",
-      "centralizedLogging": {
-        "enableCloudTrail": true,
-        "enableConfig": true,
-        "enableS3AccessLogs": true,
-        "retentionDays": 30
-      }
-    }
-    
-  },
-  "organizationalUnits": [
-    {
-      "name": "Network",
-      "account": {
-        "email": "nikhil.chaudharidevops+network@gmail.com"
-      }
+    "accessManagement": {
+        "enabled": true    
     },
-    {
-      "name": "SharedServices",
-      "account": {
-        "email": "nikhil.chaudharidevops+sharedservice@gmail.com"
-      }
+    "centralizedLogging": {
+        "accountId": "162856940015",       
+        "enabled": true,                
+        "configurations": {
+            "accessLoggingBucket": {
+                "retentionDays": 365    
+            },
+            "loggingBucket": {
+                "retentionDays": 365    
+            }
+        }
     },
-    {
-      "name": "Prod",
-      "account": {
-        "email": "nikhil.chaudharidevops+prod@gmail.com"
-      }
+    "config": {
+        "accountId": "162856940015",    
+        "enabled": true,               
+        "configurations": {
+            "accessLoggingBucket": {
+                "retentionDays": 365    
+            },
+            "loggingBucket": {
+                "retentionDays": 365   
+            }
+        }
     },
-    {
-      "name": "NonProd",
-      "account": {
-        "email": "nikhil.chaudharidevops+nonprod@gmail.com"
-      }
+    "governedRegions": [               
+        "ap-south-1"
+    ],
+    "securityRoles": {
+        "enabled": true,               
+        "accountId": "162856940015"    
     }
-  ],
-  "controls": {
-    "enableMandatory": true,
-    "enabledControls": [
-      {
-        "name": "CT.S3.PR.1",
-        "description": "Prevent public access to S3 buckets"
-      },
-      {
-        "name": "CT.CLOUDTRAIL.PR.1",
-        "description": "Ensure CloudTrail is enabled in all accounts"
-      },
-      {
-        "name": "CT.IAM.PR.1",
-        "description": "Disallow root user access keys"
-      }
-    ]
-  }
 }
+                    

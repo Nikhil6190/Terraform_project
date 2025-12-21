@@ -15,3 +15,7 @@ variable "allow_billing_access" {
 variable "landing_zone_version" {
   default = "4.0"
 }
+#variable "logging_close_on_delete" {
+ # description = "close the logging account on deletion of stack "
+  #type = bool
+  #default = false}
